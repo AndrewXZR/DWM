@@ -8,7 +8,7 @@ dwm is an extremely fast, small, and dynamic window manager for X.
 Requirements
 ------------
 In order to build dwm you need the Xlib header files.
-
+For the sound key combinations to work, you need to have alsamixer installed.
 
 Installation
 ------------
