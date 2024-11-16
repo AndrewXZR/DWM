@@ -98,6 +98,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
   	{ 0, XF86XK_AudioMute, spawn, SHCMD("amixer set Master toggle") },
   	{ 0, XF86XK_AudioLowerVolume, spawn, SHCMD("amixer set Master 5%-") },
+  	{ 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer set Master 5%+") },
 };
 
 /* button definitions */
