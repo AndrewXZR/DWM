@@ -103,8 +103,7 @@ static const Key keys[] = {
   SHCMD("echo $(($(cat /sys/class/backlight/intel_backlight/brightness) - 1000)) > /sys/class/backlight/intel_backlight/brightness") },
   { 0, XF86XK_MonBrightnessUp, spawn,
 		SHCMD("echo $(($(cat /sys/class/backlight/intel_backlight/brightness) + 1000)) > /sys/class/backlight/intel_backlight/brightness") },
-  { 0, XF86XK_TouchpadToggle, spawn,
-               	SHCMD("[ $(xinput list-props 'ELAN1200:00 04F3:309F Touchpad' | grep 'Device Enabled' | awk '{print $4}') -eq 1 ] && xinput --disable 'ELAN1200:00 04F3:309F Touchpad' || xinput --enable 'ELAN1200:00 04F3:309F Touchpad'") },
+  { 0, XF86XK_TouchpadToggle, spawn, SHCMD("/usr/local/bin/touchpad.sh") },
 };
 
 /* button definitions */
