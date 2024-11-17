@@ -1,50 +1,62 @@
-dwm - dynamic window manager
+# dwm - Dynamic Window Manager
 
-Modifications by Andrew in 2024.
-============================
-dwm is an extremely fast, small, and dynamic window manager for X.
+An extremely fast, small, and dynamic window manager for X, with modifications by Andrew in 2024.
 
+## Overview
 
-Requirements
-------------
-In order to build dwm you need the Xlib header files.
-For the sound key combinations to work, you need to have alsamixer installed.
+`dwm` is designed to be simple yet powerful, adhering to the **suckless philosophy** of minimalism and efficiency. It allows dynamic window management with a focus on usability and performance.
 
-Installation
-------------
-Edit config.mk to match your local setup (dwm is installed into
-the /usr/local namespace by default).
+Andrew's 2024 modifications add enhanced key bindings and support for sound management via `alsamixer`, while preserving the core functionality of `dwm`.
 
-Afterwards enter the following command to build and install dwm (if
-necessary as root):
+## Requirements
 
+To build and run `dwm`, ensure the following dependencies are installed:
+
+- **Xlib header files**: Required for building `dwm`.
+- **alsamixer**: Required for sound key combinations.
+- **xinput**: Required for touchpad management.
+- **notify-send**: Required for desktop notifications.
+- **[scripts-control](https://github.com/AndrewXZR/scripts-control)**: A separate repository containing custom scripts for managing sound, brightness, and touchpad toggling.
+
+## Installation
+
+1. Edit `config.mk` to suit your local setup. By default, `dwm` is installed into the `/usr/local` namespace.
+
+2. Build and install `dwm` by running the following commands:
+
+    ```bash
     make clean install
+    ```
 
+   If root privileges are required for installation, use `sudo` or switch to the root user.
 
-Running dwm
------------
-Add the following line to your .xinitrc to start dwm using startx:
+## Running dwm
 
-    exec dwm
+To start `dwm` using `startx`, add the following line to your `.xinitrc` file:
 
-In order to connect dwm to a specific display, make sure that
-the DISPLAY environment variable is set correctly, e.g.:
+```bash
+exec dwm
+```
+To run dwm on a specific display, ensure the DISPLAY environment variable is set correctly. For example:
 
-    DISPLAY=foo.bar:1 exec dwm
+```bash
+DISPLAY=foo.bar:1 exec dwm
+```
+This will start `dwm` on display :1 of the host foo.bar.
 
-(This will start dwm on display :1 of the host foo.bar.)
+Status Bar Configuration
+To display status information in the bar, add a loop like the following to your .xinitrc:
+```bash
+while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
+do
+    sleep 1
+done &
+exec dwm
+```
+## Configuration
+`dwm` is configured by modifying the source code. Create a custom config.h file with your desired settings and recompile dwm to apply the changes.
 
-In order to display status info in the bar, you can do something
-like this in your .xinitrc:
+## License
+`dwm` is distributed under the MIT/X Consortium License.
 
-    while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
-    do
-    	sleep 1
-    done &
-    exec dwm
-
-
-Configuration
--------------
-The configuration of dwm is done by creating a custom config.h
-and (re)compiling the source code.
+Andrew's modifications in 2024 comply with the original licensing terms, maintaining the same license. For more information on the original dwm, visit suckless.org.
