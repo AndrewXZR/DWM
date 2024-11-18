@@ -99,10 +99,8 @@ static const Key keys[] = {
   { 0, XF86XK_AudioMute, spawn, SHCMD("amixer set Master toggle") },
   { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("amixer set Master 5%-") },
   { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer set Master 5%+") },
-  { 0, XF86XK_MonBrightnessDown, spawn,
-  SHCMD("echo $(($(cat /sys/class/backlight/intel_backlight/brightness) - 1000)) > /sys/class/backlight/intel_backlight/brightness") },
-  { 0, XF86XK_MonBrightnessUp, spawn,
-		SHCMD("echo $(($(cat /sys/class/backlight/intel_backlight/brightness) + 1000)) > /sys/class/backlight/intel_backlight/brightness") },
+  { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("/usr/local/bin/brightness.sh down") },
+  { 0, XF86XK_MonBrightnessUp, spawn, SHCMD("/usr/local/bin/brightness.sh up") },
   { 0, XF86XK_TouchpadToggle, spawn, SHCMD("/usr/local/bin/touchpad.sh") },
 };
 
