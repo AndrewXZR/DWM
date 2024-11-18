@@ -13,9 +13,6 @@ Andrew's 2024 modifications add enhanced key bindings and support for sound mana
 To build and run `dwm`, ensure the following dependencies are installed:
 
 - **Xlib header files**: Required for building `dwm`.
-- **alsamixer**: Required for sound key combinations.
-- **xinput**: Required for touchpad management.
-- **notify-send**: Required for desktop notifications.
 - **[scripts-control](https://github.com/AndrewXZR/scripts-control)**: A separate repository containing custom scripts for managing sound, brightness, and touchpad toggling.
 
 ## Installation
