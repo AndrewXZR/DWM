@@ -58,7 +58,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-c", "-bw", "2", "-l", "20", "-h", "4", "-g", "4", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
@@ -96,9 +97,9 @@ static const Key keys[] = {
   TAGKEYS(                        XK_8,                      7)
   TAGKEYS(                        XK_9,                      8)
   { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-  { 0, XF86XK_AudioMute, spawn, SHCMD("amixer set Master toggle") },
-  { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("amixer set Master 5%-") },
-  { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer set Master 5%+") },
+  { 0, XF86XK_AudioMute, spawn, SHCMD("/usr/local/bin/volume.sh mute") },
+  { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("/usr/local/bin/volume.sh down") },
+  { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("/usr/local/bin/volume.sh up") },
   { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("/usr/local/bin/brightness.sh down") },
   { 0, XF86XK_MonBrightnessUp, spawn, SHCMD("/usr/local/bin/brightness.sh up") },
   { 0, XF86XK_TouchpadToggle, spawn, SHCMD("/usr/local/bin/touchpad.sh") },
