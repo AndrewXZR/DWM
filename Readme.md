@@ -14,6 +14,8 @@ To build and run `dwm`, ensure the following dependencies are installed:
 
 - **Xlib header files**: Required for building `dwm`.
 - **[scripts-control](https://github.com/AndrewXZR/scripts-control)**: A separate repository containing custom scripts for managing sound, brightness, and touchpad toggling.
+- **alsamixer**: required to modify the sound status by raising, lowering and muting.
+- **flameshot**: required to take screenshots when pressing print screen key.
 
 ## Installation
 
