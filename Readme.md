@@ -16,6 +16,7 @@ To build and run `dwm`, ensure the following dependencies are installed:
 - **[scripts-control](https://github.com/AndrewXZR/scripts-control)**: A separate repository containing custom scripts for managing sound, brightness, and touchpad toggling.
 - **alsamixer**: required to modify the sound status by raising, lowering and muting.
 - **flameshot**: required to take screenshots when pressing print screen key.
+- **qalculate-gtk**: required for the default calculator associated with a key.
 
 ## Installation
 
@@ -52,6 +53,30 @@ do
 done &
 exec dwm
 ```
+
+## Keybindings
+
+- **Sound Management:**
+  - **Increase Volume:** Press `XF86AudioRaiseVolume` to raise the system volume.
+  - **Decrease Volume:** Press `XF86AudioLowerVolume` to lower the system volume.
+  - **Mute/Unmute:** Press `XF86AudioMute` to toggle mute on or off.
+  These keybindings utilize `alsamixer` and custom scripts from the [scripts-control](https://github.com/AndrewXZR/scripts-control) repository.
+
+- **Brightness Adjustment:**
+  - **Increase Brightness:** Press `XF86MonBrightnessUp` to increase screen brightness.
+  - **Decrease Brightness:** Press `XF86MonBrightnessDown` to decrease screen brightness.
+  This functionality requires a compatible script from the `scripts-control` repository.
+
+- **Touchpad Toggle:** Press `XF86TouchpadToggle` to enable or disable the touchpad.
+  This relies on a script included in the `scripts-control` repository.
+
+- **Screenshot:** Press the `PrintScreen` key to capture a screenshot using `flameshot`.
+  Ensure `flameshot` is installed and configured for this feature.
+
+
+- **Calculator:** Press the `XF86Calculator` key to launch the calculator application.
+  By default, this keybinding launches `qalculate-gtk`. You can modify this behavior in `config.h` by specifying a different application.
+
 ## Configuration
 `dwm` is configured by modifying the source code. Create a custom config.h file with your desired settings and recompile dwm to apply the changes.
 
