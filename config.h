@@ -62,6 +62,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-c", "-bw", "2", "-l", "20", "-h", "4", "-g", "4", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *flameshot_cmd[] = { "flameshot", "gui", NULL };
+static const char *calculator_cmd[] = { "qalculate-gtk", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -104,7 +105,8 @@ static const Key keys[] = {
   { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("/usr/local/bin/brightness.sh down") },
   { 0, XF86XK_MonBrightnessUp, spawn, SHCMD("/usr/local/bin/brightness.sh up") },
   { 0, XF86XK_TouchpadToggle, spawn, SHCMD("/usr/local/bin/touchpad.sh") },
-  { 0, XK_Print, spawn, {.v = flameshot_cmd } },
+  { 0, XK_Print, spawn, {.v = flameshot_cmd} },
+  { 0, XF86XK_Calculator, spawn, {.v = calculator_cmd} },
 };
 
 /* button definitions */
